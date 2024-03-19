@@ -1,0 +1,18 @@
+/* Write your CSS here */
+
+.header-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.header-logo {
+  height: 40px;
+  width: 40px;
+}
+
+header-menu {
+  font-size: 24px;
+}
