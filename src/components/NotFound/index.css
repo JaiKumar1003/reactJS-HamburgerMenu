@@ -1,1 +1,28 @@
 /* Write your CSS here */
+
+.not-found-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+}
+
+.not-found-img {
+  width: 78%;
+}
+
+.not-found-heading {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.not-found-description {
+  color: #616e7c;
+  font-family: 'Roboto';
+  font-size: 12px;
+  text-align: center;
+  max-width: 260px;
+}
