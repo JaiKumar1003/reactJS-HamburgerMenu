@@ -8,10 +8,6 @@ import './index.css'
 
 const Header = props => {
   const {isClickedMenu, onClickMenu} = props
-  console.log(isClickedMenu)
-  const onClickHarmburger = () => {
-    onClickMenu()
-  }
   return (
     <div className="header-card">
       <img
@@ -25,15 +21,11 @@ const Header = props => {
           model
           trigger={
             <button
-              onClick={onClickHarmburger}
               type="button"
               className="hamburger-btn"
             >
-              {isClickedMenu ? (
                 <IoMdClose className="header-hamburger-icon" />
-              ) : (
                 <GiHamburgerMenu className="header-hamburger-icon" />
-              )}
             </button>
           }
           className="popup-content"
