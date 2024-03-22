@@ -1,13 +1,27 @@
 // Write your code here
 
+import {withRouter} from 'react-router-dom'
+
 import Popup from 'reactjs-popup'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {IoMdClose} from 'react-icons/io'
+import {AiFillHome} from 'react-icons/ai'
+import {BsInfoCircleFill} from 'react-icons/bs'
 
 import './index.css'
 
 const Header = props => {
   const {isClickedMenu, onClickMenu} = props
+  const onClickHome = () => {
+    const {history} = props
+    history.replace('/')
+  }
+  
+  const onClickAbout = () => {
+    const {history} = props
+    history.replace('/about')
+  }
+
   return (
     <div className="header-card">
       <img
@@ -15,28 +29,36 @@ const Header = props => {
         src="https://assets.ccbp.in/frontend/react-js/hamburger-menu-website-logo.png"
         alt="website logo"
       />
-
       <div>
         <Popup
           model
           trigger={
-            <button
-              type="button"
-              className="hamburger-btn"
-            >
-                <IoMdClose className="header-hamburger-icon" />
-                <GiHamburgerMenu className="header-hamburger-icon" />
+            <button type="button" className="button">
+              <GiHamburgerMenu className="header-hamburger-icon" />
             </button>
           }
           className="popup-content"
         >
-          <div>
-            <p>Hai Jai</p>
-          </div>
+          {close => (
+            <div className="popup-content">
+              <button className="button" onClick={() => close()} type="button">
+                <IoMdClose />
+              </button>
+              <div className="popup-content-bottom-card">
+                <button onClick={onClickHome} className="button" type="button">
+                  <AiFillHome className="popup-icon" /> Home
+                </button>
+                <button onClick={onClickAbout} className="button" type="button">
+                  <BsInfoCircleFill className="popup-icon" /> About
+                </button>
+              </div>
+            </div>
+          )}
         </Popup>
       </div>
     </div>
   )
 }
 
-export default Header
+export default withRouter(Header)
+
