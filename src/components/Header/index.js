@@ -11,12 +11,11 @@ import {BsInfoCircleFill} from 'react-icons/bs'
 import './index.css'
 
 const Header = props => {
-  const {isClickedMenu, onClickMenu} = props
   const onClickHome = () => {
     const {history} = props
     history.replace('/')
   }
-  
+
   const onClickAbout = () => {
     const {history} = props
     history.replace('/about')
@@ -24,11 +23,13 @@ const Header = props => {
 
   return (
     <div className="header-card">
-      <img
+      <button type="button" className="button" onClick={onClickHome}>
+        <img
         className="header-logo"
         src="https://assets.ccbp.in/frontend/react-js/hamburger-menu-website-logo.png"
         alt="website logo"
       />
+      </button>
       <div>
         <Popup
           model
@@ -61,4 +62,3 @@ const Header = props => {
 }
 
 export default withRouter(Header)
-
