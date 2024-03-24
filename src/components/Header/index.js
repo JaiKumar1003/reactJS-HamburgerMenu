@@ -1,6 +1,6 @@
 // Write your code here
 
-import {withRouter} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import Popup from 'reactjs-popup'
 import {GiHamburgerMenu} from 'react-icons/gi'
@@ -10,31 +10,27 @@ import {BsInfoCircleFill} from 'react-icons/bs'
 
 import './index.css'
 
-const Header = props => {
-  const onClickHome = () => {
-    const {history} = props
-    history.replace('/')
-  }
-
-  const onClickAbout = () => {
-    const {history} = props
-    history.replace('/about')
-  }
-
+const Header = () => {
   return (
     <div className="header-card">
-      <button type="button" className="button" onClick={onClickHome}>
-        <img
-        className="header-logo"
-        src="https://assets.ccbp.in/frontend/react-js/hamburger-menu-website-logo.png"
-        alt="website logo"
-      />
-      </button>
+      <Link className="link" to="/">
+        <button type="button" className="button">
+          <img
+            className="header-logo"
+            src="https://assets.ccbp.in/frontend/react-js/hamburger-menu-website-logo.png"
+            alt="website logo"
+          />
+        </button>
+      </Link>
       <div>
         <Popup
           model
           trigger={
-            <button type="button" className="button">
+            <button
+              data-testid="hamburgerIconButton"
+              type="button"
+              className="button"
+            >
               <GiHamburgerMenu className="header-hamburger-icon" />
             </button>
           }
@@ -42,17 +38,30 @@ const Header = props => {
         >
           {close => (
             <div className="popup-content">
-              <button className="button" onClick={() => close()} type="button">
+              <button
+                data-testid="closeButton"
+                className="button"
+                onClick={() => close()}
+                type="button"
+              >
                 <IoMdClose />
               </button>
-              <div className="popup-content-bottom-card">
-                <button onClick={onClickHome} className="button" type="button">
-                  <AiFillHome className="popup-icon" /> Home
-                </button>
-                <button onClick={onClickAbout} className="button" type="button">
-                  <BsInfoCircleFill className="popup-icon" /> About
-                </button>
-              </div>
+              <ul className="popup-content-bottom-card">
+                <li>
+                  <Link to="/" className="link">
+                    <button className="button" type="button">
+                      <AiFillHome className="popup-icon" /> Home
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="link">
+                    <button className="button" type="button">
+                      <BsInfoCircleFill className="popup-icon" /> About
+                    </button>
+                  </Link>
+                </li>
+              </ul>
             </div>
           )}
         </Popup>
@@ -61,4 +70,4 @@ const Header = props => {
   )
 }
 
-export default withRouter(Header)
+export default Header
