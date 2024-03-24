@@ -17,7 +17,7 @@ const NotFound = () => {
         />
         <h1 className="not-found-heading">Lost Your Way?</h1>
         <p className="not-found-description">
-          Sorry we cannot find that page. We will find lots to explore on the
+          Sorry, we cannot find that page. You will find lots to explore on the
           home page
         </p>
       </div>
