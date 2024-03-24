@@ -17,10 +17,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
   width: 100%;
 }
 
 .home-img {
-  width: 70%;
+  width: 50%;
 }
